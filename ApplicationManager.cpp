@@ -2,6 +2,7 @@
 #include "Actions\ActionAddSquare.h"
 #include "Actions\ActionSelect.h"
 #include "Actions/Action.h"
+#include "ActionResize.h"
 #include <iostream>
 
 //Constructor
@@ -60,7 +61,9 @@ Action* ApplicationManager::CreateAction(ActionType ActType)
         case DRAWING_AREA:
             newAct = new ActionSelect(this);
             break;
-		
+        case RESIZE:
+            newAct = new ActionResize(this);
+            break;
 		case STATUS:	//a click on the status bar ==> no action
 			return NULL;
 			break;
@@ -100,13 +103,16 @@ CFigure *ApplicationManager::GetFigure(int x, int y) const
     }
 	return NULL;
 }
-CFigure** ApplicationManager::GetSelected() const {
-    CFigure** selectedFigures = new CFigure * [FigCount];
-    int index = 0;
+CFigure** ApplicationManager::GetSelected()  {
+    CFigure** selectedFigures = (CFigure**)malloc(sizeof(CFigure*) * FigCount);
+    for (int i = 0;i < FigCount;i++) {
+        (selectedFigures)[i] = NULL;
+    }
+    SelectedCount = 0;
     for (int i = 0;i < FigCount;i++) {
         if (FigList[i]->IsSelected()) {
-            selectedFigures[index] = FigList[i];
-            index++;
+            selectedFigures[i] = FigList[i];
+            SelectedCount++;
         }
     }
     return selectedFigures;

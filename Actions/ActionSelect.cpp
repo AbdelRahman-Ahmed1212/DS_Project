@@ -20,14 +20,18 @@
         if (fg == NULL) {
             g->PrintMessage("there is no shape in clicked points");
         }
-        else if(!fg->IsSelected()){
-            fg->SetSelected(true);
-            fg->ChngDrawClr(BISQUE);
-        }
         else {
-            fg->SetSelected(false);
-            fg->ChngDrawClr(BLUE);
+            g->PrintMessage(""+fg->IsSelected());
 
+            if (!fg->IsSelected()) {
+                fg->SetSelected(true);
+                fg->ChngDrawClr(BISQUE);
+            }
+            if(fg->IsSelected() ){
+                fg->SetSelected(false);
+                fg->ChngDrawClr(BLUE);
+
+            }
         }
         
     }

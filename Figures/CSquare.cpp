@@ -1,4 +1,5 @@
 #include "CSquare.h"
+#include <iostream>
 
 CSquare::CSquare(Point P1, int len, GfxInfo FigureGfxInfo):CFigure(FigureGfxInfo)
 {
@@ -14,7 +15,7 @@ void CSquare::DrawMe(GUI* pGUI) const
 	
 
 }
-bool CSquare::PointsInside(int x, int y) const {
+bool CSquare::PointsInside(int x, int y)  {
     // Calculate the coordinates of the bottom-right corner based on the top-left corner and side length
     int x2 = TopLeftCorner.x + length;
     int y2 = TopLeftCorner.y + length;
@@ -22,9 +23,14 @@ bool CSquare::PointsInside(int x, int y) const {
     // Check if the point (x, y) lies within the square's boundaries
     if (x >= TopLeftCorner.x && x <= x2 && y >= TopLeftCorner.y && y <= y2) {
         return true; // Point is inside the square
+
     }
     else {
         return false; // Point is outside the square
     }
+}
+void CSquare::Resize() {
+    length = length * 2;
+    cout << length << endl;
 }
 

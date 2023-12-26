@@ -14,15 +14,14 @@ class ApplicationManager
 
 private:
 	int FigCount;		//Actual number of figures
-    int SelectedCount;
-    CFigure* FigList[MaxFigCount];	//List of all figures (Array of pointers)
+   CFigure* FigList[MaxFigCount];	//List of all figures (Array of pointers)
 
 	//Pointers to Input and Output classes
 	GUI* pGUI;
 	
 
 public:
-    
+     int SelectedCount;
 	ApplicationManager(); 
 	~ApplicationManager();
 
@@ -36,7 +35,7 @@ public:
 	 void AddFigure(CFigure* pFig); //Adds a new figure to the FigList
 	 CFigure *GetFigure(int x, int y) const ; //Search for a figure given a point inside the figure
 
-    CFigure** GetSelected() const;
+    CFigure** GetSelected() ;
 		
 	// -- Interface Management Functions	
 	GUI *GetGUI() const; //Return pointer to the interface

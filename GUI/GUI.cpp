@@ -85,7 +85,7 @@ ActionType GUI::MapInputToActionType() const
 			switch (ClickedItemOrder)
 			{
 			case ITM_SQUR: return DRAW_SQUARE;
-			case ITM_ELPS: return DRAW_ELPS;
+		
 			case ITM_EXIT: return EXIT;
 			
 			default: return EMPTY;	//A click on empty place in desgin toolbar
@@ -150,9 +150,7 @@ void GUI::CreateDrawToolBar() const
 	//reoder them in UI_Info.h ==> enum DrawMenuItem
 	string MenuItemImages[DRAW_ITM_COUNT];
 	MenuItemImages[ITM_SQUR] = "images\\MenuItems\\Menu_Sqr.jpg";
-	MenuItemImages[ITM_ELPS] = "images\\MenuItems\\Menu_Elps.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\MenuItems\\Menu_Exit.jpg";
-    MenuItemImages[ITM_SELECTED] = "images\\MenuItems\\Menu_Exit.jpg";
 	//TODO: Prepare images for each menu item and add it to the list
 
 	//Draw menu item one image at a time

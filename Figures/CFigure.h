@@ -21,9 +21,9 @@ public:
 	bool IsSelected() const;	//check whether fig is selected
     void GetShapesCount();
     void ChngDrawClr(color Dclr);
-
+    virtual void Resize()  = 0;
 	virtual void DrawMe(GUI*) const  = 0 ;		//Draw the figure
-    virtual bool PointsInside(int x, int y) const = 0;
+    virtual bool PointsInside(int x, int y)  = 0;
 	void ChngFillClr(color Fclr);	//changes the figure's filling color
 
 	///The following functions should be supported by the figure class
